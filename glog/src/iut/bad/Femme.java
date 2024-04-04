@@ -19,10 +19,10 @@ public class Femme extends Humain {
         Homme homme = new Homme("Jean", "Dupont", 30);
         Femme femme = new Femme("Marie", "Curie", 28);
 
-        homme.ami(femme); // Jean Dupont et Marie Curie deviennent amis
+        homme.ami(femme); 
 
-        // Affichage des amis pour vérifier
-        homme.afficherAmis(); // Devrait afficher Marie Curie comme amie de Jean Dupont
-        femme.afficherAmis(); // Devrait afficher Jean Dupont comme ami de Marie Curie
+       
+        homme.afficherAmis();
+        femme.afficherAmis(); 
     }
 }
