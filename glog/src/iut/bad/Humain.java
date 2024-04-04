@@ -1,18 +1,17 @@
 package iut.bad;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Humain implements Consommation {
     protected String nom;
     protected String prenom;
     protected int age;
-    private List<Humain> amis;
-
+    private Map<Humain, Integer> amis = new HashMap<>(); 
+    
     public Humain(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
-        this.amis = new ArrayList<>();
     }
 
     public String getNom() {
@@ -38,33 +37,43 @@ public class Humain implements Consommation {
     public void setAge(int age) {
         this.age = age;
     }
+    
     public void manger() {
         System.out.println(nom + " est en train de manger.");
     }
-
     
     public void boire() {
         System.out.println(nom + " est en train de boire.");
+    }
+    
+    public void ami(Humain humain, int dureeJours) {
+        if (humain != null && !this.amis.containsKey(humain)) {
+            this.amis.put(humain, dureeJours);
+            humain.amis.put(this, dureeJours);  
+        }
+    }
+
+    
+    public void ami(Humain humain) {
+        this.ami(humain, 100); 
     }
 
     public void details() {
         System.out.println("Nom: " + nom + ", Prénom: " + prenom + ", Âge: " + age);
     }
+
     @Override
     public String toString() {
         return "Nom: " + nom + ", Prénom: " + prenom + ", Âge: " + age;
     }
+
+    // Méthode adaptée pour afficher les amis et la durée de l'amitié à partir d'une Map
     public void afficherAmis() {
         System.out.println(nom + " a " + amis.size() + " ami(s).");
-        for (Humain ami : amis) {
-            System.out.println(ami.nom + " " + ami.prenom);
+        for (Map.Entry<Humain, Integer> entry : amis.entrySet()) {
+            Humain ami = entry.getKey();
+            Integer duree = entry.getValue();
+            System.out.println(ami.nom + " " + ami.prenom + " depuis " + duree + " jours");
         }
     }
-    public void ami(Humain humain) {
-        if (humain != null && !this.amis.contains(humain)) {
-            this.amis.add(humain);
-            humain.amis.add(this); // Ajoute une amitié mutuelle
-        }
-    }
-    
 }
