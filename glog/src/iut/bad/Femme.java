@@ -14,10 +14,15 @@ public class Femme extends Humain {
     public void afficherInfos() {
         System.out.println("Nom: " + nom + ", Prénom: " + prenom + ", Âge: " + age);
     }
-
     
     public static void main(String[] args) {
-        Homme homme = new Homme("Dupont", "Jean", 30);
-        homme.afficherInfos();
+        Homme homme = new Homme("Jean", "Dupont", 30);
+        Femme femme = new Femme("Marie", "Curie", 28);
+
+        homme.ami(femme); 
+
+       
+        homme.afficherAmis();
+        femme.afficherAmis(); 
     }
 }
