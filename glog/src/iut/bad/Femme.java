@@ -1,20 +1,21 @@
 package iut.bad;
 
-public class Homme {
-
+public class Femme {
+   
     private String nom;
     private String prenom;
     private int age;
 
-    public Homme() {
-       
+   
+    public Femme() {
+        
         this.nom = "";
         this.prenom = "";
         this.age = 0;
     }
 
-   
-    public Homme(String nom, String prenom, int age) {
+  
+    public Femme(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
@@ -46,12 +47,12 @@ public class Homme {
         this.age = age;
     }
 
-    
+  
     public void afficherInfos() {
         System.out.println("Nom: " + nom + ", Prénom: " + prenom + ", Âge: " + age);
     }
 
-  
+    
     public static void main(String[] args) {
         Homme homme = new Homme("Dupont", "Jean", 30);
         homme.afficherInfos();
