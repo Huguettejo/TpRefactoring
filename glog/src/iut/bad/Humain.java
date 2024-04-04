@@ -35,7 +35,7 @@ public class Humain {
         this.age = age;
     }
 
-    public void afficherInfos() {
+    public void details() {
         System.out.println("Nom: " + nom + ", Prénom: " + prenom + ", Âge: " + age);
     }
 }
